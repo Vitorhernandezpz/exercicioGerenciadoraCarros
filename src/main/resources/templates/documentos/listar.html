@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Documentos</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="panel-default">
+            <div class="text-center">
+                <h1 class="h4 text-grey-900 mb-4">Documentos</h1>
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-sm table-striped table-hover table-bordered">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tipo</th>
+                            <th>Número</th>
+                            <th>Ação</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="documento : ${documentos}">
+                            <td th:text="${documento.id}"></td>
+                            <td th:text="${documento.tipo}"></td>
+                            <td th:text="${documento.numero}"></td>
+                            <td>
+                                <div class="btn-group pull-right">
+                                    <a th:href="@{/documentos/editar/{id}(id=${documento.id})}" class="btn btn-sm btn-primary">Alterar</a>
+                                    <a th:href="@{/documentos/deletar/{id}(id=${documento.id})}" class="btn btn-sm btn-danger">Excluir</a>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div align="left">
+                <a  href="/documentos/cadastrar" class="btn btn-success">Cadastrar</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

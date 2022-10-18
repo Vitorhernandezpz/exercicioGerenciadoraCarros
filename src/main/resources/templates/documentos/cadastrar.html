@@ -1,0 +1,51 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Cadastrar Documento</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="panel-default">
+
+            <div class="text-center">
+                <h1 class="h4 text-grey-900 mb-4">Cadastrar Documento</h1>
+            </div>
+            <div class="panel-body">
+
+                <form th:object="${documento}" class="form-horizontal" th:action="@{/documentos/salvar}" method="POST" style="margin: 10px">
+                    <div class="form-group">
+                        <fieldset>
+                            <div class="form-group row">
+                                <label for="tipoInput">Tipo</label>
+                                <input id="tipoInput" type="text" class="form-control input-sm" th:field="*{tipo}" autofocus="autofocus" placeholder="Informe o tipo" maxlength="50" name="" />
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <div class="form-group row">
+                                <label for="numeroInput">Número</label>
+                                <input id="numeroInput" type="text" class="form-control input-sm" th:field="*{numero}" autofocus="autofocus" placeholder="Informe o número" maxlength="50" name="" />
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div align="center">
+                        <button type="submit" class="btn btn-sm btn-primary">Salvar</button>
+                        <a  href="/documentos/listar" class="btn btn-sm btn-default">Cancelar</a>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
