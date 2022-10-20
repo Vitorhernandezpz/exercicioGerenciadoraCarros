@@ -33,19 +33,25 @@
                         </thead>
                         <tbody>
                         <tr th:each="carro : ${carros}">
+                        	
                             <td th:text="${carro.id}"></td>
                             <td th:text="${carro.modelo}"></td>
                             <td th:text="${carro.chave.codigo}"></td>
                             <td th:text="${carro.documento.tipo}"></td>
                             <td th:text="${carro.fabricante.nome}"></td>
-                            <td th:text="${carro.acessorio.nome}"></td>
+                            <td th:each="acessorio : ${carro.acessorios}">
+                            <span th:text="${acessorio.nome}"></span>
+                            <br>
+                            <br>
+                            </td>
+                            
                             <td>
                                 <div class="btn-group pull-right">
                                     <a th:href="@{/carros/editar/{id}(id=${carro.id})}" class="btn btn-sm btn-primary">Alterar</a>
                                     <a th:href="@{/carros/deletar/{id}(id=${carro.id})}" class="btn btn-sm btn-danger">Excluir</a>
                                 </div>
                             </td>
-                        </tr>
+                        </td>
                         </tbody>
                     </table>
                 </div>
